@@ -17,7 +17,7 @@ spec:
           image: "tiblue/tetris-nginx"
           ports:
             - name: http
-              containerPort: 8080
+              containerPort: 80
 ---
 apiVersion: v1
 kind: Service
@@ -27,8 +27,8 @@ spec:
   selector:
     app: tetris-nginx
   ports:
-    - port: 8080
-      targetPort: 8080
+    - port: 80
+      targetPort: 80
       protocol: TCP
 ---
 apiVersion: networking.k8s.io/v1
@@ -48,4 +48,4 @@ spec:
               service:
                 name: tetris-nginx-sv
                 port:
-                  number: 8080
+                  number: 80
